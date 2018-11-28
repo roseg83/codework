@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Digital Clock</title>
+	<style type="text/css">
+	body{
+				background= "black;
+			}
+			.clock{
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translateX(-50%) translateY(-50%);
+				color: whitesmoke;
+				font-size: 80px;
+				border: 1px solid #ccc;
+				padding: 0px 5px 0px 5px;
+				background:#212020;
+				
+			}
+	</style>
+<script>
+function startTime() {
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById('digitalclock').innerHTML =
+    h + ":" + m + ":" + s;
+    var t = setTimeout(startTime, 500);
+}
+function checkTime(i) {
+    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}
+</script>
+</head>
+
+<body onload="startTime()" background= "/backgroundimage.jpg">
+
+<div id="digitalclock" class="clock"></div>
+
+</body>
+</html>
